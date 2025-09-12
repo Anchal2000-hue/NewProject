@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Saathi - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">TaskSaathi Dashboard</div>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Home</a></li>
+        <li><a href="index.html">Logout</a></li>
+        <li><button id="themeToggle" class="theme-btn">🌙</button></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Dashboard Content -->
+  <section class="dashboard">
+    <h1>Welcome to TaskSaathi 🎉</h1>
+    <p>Please choose your role to continue:</p>
+
+    <div class="role-buttons">
+      <a href="employer-dashboard.html" class="btn-large">👨‍💼 Employer</a>
+      <a href="employee-dashboard.html" class="btn-large">👩‍💻 Employee</a>
+    </div>
+  </section>
+<script>
+  const themeToggle = document.getElementById("themeToggle");
+  const body = document.body;
+
+  // Load saved theme
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark");
+    if (themeToggle) themeToggle.textContent = "☀️";
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        themeToggle.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

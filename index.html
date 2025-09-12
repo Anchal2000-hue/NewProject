@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Saathi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Image -->
+  
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+  <a href="index.html">
+    <img src="logo.jpg" alt="Task Saathi Logo" class="logo-img">
+  </a>
+</div>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our Products</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><button id="themeToggle" class="theme-btn">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <!-- Hero Section with Image and Text Side by Side -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-image">
+      <img src="new image.jpg" alt="Project Image">
+    </div>
+    <div class="hero-text">
+      <h1>A central space where teams solve problems,<br> automate tasks, and bring projects to life.</h1>
+      <div class="buttons">
+        <a href="login.html" class="btn">Get Started</a>
+        <a href="login.html" class="btn-outline">Request a Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Features -->
+  <section class="features">
+    <div class="feature">
+      <h3>Save Time</h3>
+      <p>Automate tracking and focus on what truly matters.</p>
+    </div>
+    <div class="feature">
+      <h3>Boost Performance</h3>
+      <p>Monitor progress and identify areas for improvement.</p>
+    </div>
+    <div class="feature">
+      <h3>Centralized Data</h3>
+      <p>All tasks and communication in one secure location.</p>
+    </div>
+    <div class="feature">
+      <h3>Clear Communication</h3>
+      <p>Reduce misunderstandings with direct task assignments.</p>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="key-features">
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Secure Login/Signup:</strong> Robust authentication ensures safe access.</li>
+      <li><strong>Small Team Focus:</strong> Optimized for up to 30 employees.</li>
+      <li><strong>Admin Approval:</strong> Companies require admin approval before use.</li>
+      <li><strong>Dynamic Dashboards:</strong> Role-based dashboards for employers & employees.</li>
+      <li><strong>Reports:</strong> Export tasks into professional PDF reports.</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact Us: info@tasksaathi.com | admin@tasksaathi.com</p>
+    <p>© 2025 Task Saathi. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      if (themeToggle) themeToggle.textContent = "☀️";
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        if (body.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+          themeToggle.textContent = "☀️";
+        } else {
+          localStorage.setItem("theme", "light");
+          themeToggle.textContent = "🌙";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

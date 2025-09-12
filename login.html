@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Saathi - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login to TaskSaathi</h2>
+    <form id="loginForm">
+      <label for="username">Username :</label>
+      <input type="text" id="username" placeholder="Enter Username" required>
+
+      <label for="password">Password :</label>
+      <input type="password" id="password" placeholder="Enter Password" required>
+
+      <button type="submit" class="btn">Login</button>
+      <button type="button" class="btn-google">Login with Google</button>
+    </form>
+
+    <div class="links">
+      <a href="#">Forgot Password?</a><br>
+      <span>Don’t have an account? <a href="signup.html">Sign Up</a></span>
+    </div>
+  </div>
+
+  <script>
+   document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  window.location.href = "dashboard.html"; // goes to role selection
+});
+
+  </script>
+  <span>Already have an account? <a href="login.html">Login</a></span>
+
+
+</body>
+</html>
