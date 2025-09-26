@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Saathi</title>
-  <link rel="stylesheet" href="style.css">
   <style>
-    /* Reset & Base */
     * {
       margin: 0;
       padding: 0;
@@ -15,9 +13,12 @@
     }
 
     body {
-      background-color: #f7f7f7;
+      background-color: #f4f7ff;
       color: #333;
       line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
       transition: background-color 0.3s, color 0.3s;
     }
 
@@ -38,27 +39,24 @@
 
     /* Navbar */
     header {
-      background-color: #fff;
+      background-color: #ffffffcc;
       padding: 15px 30px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: background-color 0.3s;
-    }
-
-    body.dark header {
-      background-color: #1a1a1a;
+      backdrop-filter: blur(10px);
     }
 
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo img {
-      height: 50px;
+      height: 140px;
     }
 
     .nav-links {
@@ -66,11 +64,14 @@
       display: flex;
       gap: 20px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .nav-links li a, .theme-btn {
-      padding: 8px 12px;
-      border-radius: 5px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
       transition: background 0.3s, color 0.3s;
     }
 
@@ -83,15 +84,21 @@
       cursor: pointer;
       border: none;
       background: none;
-      font-size: 18px;
+      font-size: 22px;
     }
 
-    /* Hero Section with Gradient */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Hero Section */
     .hero {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 20px;
+      padding: 100px 20px 50px 20px;
       flex-wrap: wrap;
       gap: 40px;
       text-align: center;
@@ -100,189 +107,181 @@
     }
 
     .hero-image img {
-      width: 400px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      width: 380px;
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
       transition: transform 0.3s;
     }
 
     .hero-image img:hover {
-      transform: translateY(-5px) scale(1.02);
+      transform: translateY(-8px) scale(1.05);
     }
 
     .hero-text h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+      font-size: 2.4rem;
+      line-height: 1.3;
+      margin-bottom: 30px;
+      font-weight: 700;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
     }
 
-    .hero-text .btn, .hero-text .btn-outline {
-      padding: 12px 25px;
-      border-radius: 8px;
-      margin: 5px;
-      font-weight: bold;
-      transition: all 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    .btn {
-      background: linear-gradient(45deg, #ff6a00, #ee0979);
+    /* Hero Buttons */
+    .hero-text .btn {
+      background: linear-gradient(45deg, #ff512f, #dd2476);
       color: #fff;
       border: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 16px 36px;
+      border-radius: 10px;
+      margin: 5px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+      transition: all 0.3s;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    .hero-text .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
-    .btn-outline {
-      border: 2px solid #fff;
+    .hero-text .btn-outline {
+      border: 3px solid #fff;
+      background: linear-gradient(135deg, #ffd200, #f7971e);
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 16px 36px;
+      border-radius: 10px;
+      margin: 5px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transition: all 0.3s;
+    }
+
+    .hero-text .btn-outline:hover {
+      background: linear-gradient(135deg, #f7971e, #ffd200);
       color: #fff;
-      background: none;
-    }
-
-    .btn-outline:hover {
-      background: #fff;
-      color: #333;
-      transform: scale(1.05);
+      transform: scale(1.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
     /* Features */
     .features {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 25px;
       flex-wrap: wrap;
-      padding: 50px 20px;
+      padding: 70px 20px;
       text-align: center;
+      background-color: #eef3fc;
     }
 
     .feature {
-      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-      padding: 25px;
-      border-radius: 15px;
+      background: linear-gradient(145deg, #ffffff, #e6f0ff);
+      padding: 25px 20px;
+      border-radius: 20px;
       width: 220px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
     }
 
     .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+      background: linear-gradient(145deg, #ffffff, #d9e6ff);
     }
 
-    /* Products Section */
-    #our-products {
-      text-align: center;
-      padding: 50px 20px;
+    .feature h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #2575fc;
     }
 
-    #our-products h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
+    .feature p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
     }
 
-    .products-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+    @media (min-width: 1200px) {
+      .features {
+        flex-wrap: nowrap;
+      }
     }
 
-    .product-card {
-      width: 180px;
-      background: linear-gradient(145deg, #ffecd2, #fcb69f);
-      border-radius: 15px;
-      padding: 15px;
-      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-      text-align: center;
-      color: #333;
-      font-weight: bold;
+    @media (max-width: 1024px) {
+      .features {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
 
-    .product-card img {
-      border-radius: 12px;
-      margin-bottom: 10px;
+    @media (max-width: 768px) {
+      .feature {
+        width: 45%;
+      }
     }
 
-    .product-card:hover {
-      transform: scale(1.07);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-      background: linear-gradient(145deg, #fcb69f, #ffecd2);
+    @media (max-width: 480px) {
+      .feature {
+        width: 90%;
+      }
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+      .btn, .btn-outline {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+      }
     }
 
     /* Footer */
     footer {
-      background-color: #fff;
+      background: #ffffffcc;
       color: #333;
       text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9rem;
-      line-height: 1.6;
+      padding: 20px 20px;
+      width: 100%;
+      box-shadow: 0 -5px 15px rgba(0,0,0,0.08);
+      backdrop-filter: blur(10px);
     }
 
-    footer .disclaimer {
-      max-width: 800px;
-      margin: 0 auto 20px;
+    footer p {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      font-weight: 500;
     }
 
-    footer .disclaimer h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    footer .social-follow p {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    footer .icons {
+    footer .footer-socials {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
+      gap: 25px;
+      margin: 10px 0;
     }
 
-    footer .icons a svg {
-      width: 30px;
-      height: 30px;
-      fill: #333;
-      transition: transform 0.3s, fill 0.3s;
+    footer .footer-socials a img, 
+    footer .footer-socials a svg {
+      height: 45px;
+      width: 45px;
+      transition: transform 0.3s, filter 0.3s;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
     }
 
-    footer .icons a:hover svg {
+    footer .footer-socials a:hover img,
+    footer .footer-socials a:hover svg {
       transform: scale(1.1);
-      fill: #007BFF;
-    }
-
-    footer .powered-by {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    footer .powered-by img {
-      max-width: 150px;
-      margin-bottom: 5px;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.35));
     }
 
     footer .copy {
-      font-size: 0.8rem;
-    }
-
-    footer .copy a {
-      color: #007BFF;
-      text-decoration: none;
-    }
-
-    footer .copy a:hover {
-      text-decoration: underline;
+      font-size: 0.85rem;
+      margin-top: 8px;
+      color: #555;
     }
 
     body.dark footer {
-      background-color: #111;
+      background: #1a1a1acc;
       color: #f1f1f1;
     }
   </style>
@@ -294,134 +293,83 @@
     <nav class="navbar">
       <div class="logo">
         <a href="index.html">
-          <img src="WhatsApp Image 2025-09-23 at 17.57.08_ef40957d.jpg" alt="Task Saathi Logo" class="logo-img">
+          <img src="WhatsApp Image 2025-09-23 at 17.57.08_ef40957d.jpg" alt="Task Saathi Logo">
         </a>
       </div>
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
-        <li><a href="#our-products">Our Products</a></li>
-        <li><a href="about-us.html">About us</a></li>
+        <li><a href="products.html">Our Products</a></li>
+        <li><a href="about-us.html">About Us</a></li>
         <li><a href="contact-us.html">Contact Us</a></li>
         <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Signup</a></li>
         <li><button id="themeToggle" class="theme-btn">🌙</button></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-image">
-      <img src="new image.jpg" alt="Project Image">
-    </div>
-    <div class="hero-text">
-      <h1>A central space where teams solve problems,<br> automate tasks, and bring projects to life.</h1>
-      <div class="buttons">
-        <a href="login.html" class="btn">Get Started</a>
-        <a href="login.html" class="btn-outline">Request a Demo</a>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-image">
+        <img src="new image.jpg" alt="Project Image">
       </div>
-    </div>
-  </section>
+      <div class="hero-text">
+        <h1>A central space where teams solve problems,<br> automate tasks, and bring projects to life.</h1>
+        <div class="buttons">
+          <a href="login.html" class="btn">Get Started</a>
+          <a href="contact-us.html" class="btn-outline">Request a Demo</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Features -->
-  <section class="features">
-    <div class="feature">
-      <h3>Save Time</h3>
-      <p>Automate tracking and focus on what truly matters.</p>
-    </div>
-    <div class="feature">
-      <h3>Boost Performance</h3>
-      <p>Monitor progress and identify areas for improvement.</p>
-    </div>
-    <div class="feature">
-      <h3>Centralized Data</h3>
-      <p>All tasks and communication in one secure location.</p>
-    </div>
-    <div class="feature">
-      <h3>Clear Communication</h3>
-      <p>Reduce misunderstandings with direct task assignments.</p>
-    </div>
-  </section>
-
-  <!-- Our Products -->
-  <section id="our-products">
-    <h2>Our Products</h2>
-    <div class="products-container">
-      <a href="http://chalosaathi.com" target="_blank">
-        <div class="product-card">
-          <img src="IMG-20250814-WA0014.jpg" alt="Chalo Saathi">
-          <p>Chalo Saathi</p>
-        </div>
-      </a>
-      <a href="http://internsaathi.com" target="_blank">
-        <div class="product-card">
-          <img src="internsaathi logo jpg-02.jpg" alt="Antan Saathi">
-          <p>Intern Saathi</p>
-        </div>
-      </a>
-      <a href="http://naukrisaathi.com" target="_blank">
-        <div class="product-card">
-          <img src="NAUKRISAATHI-Logo.jpg" alt="Naukri Saathi">
-          <p>Naukri Saathi</p>
-        </div>
-      </a>
-      <a href="http://www.sunsysglobal.com " target="_blank">
-        <div class="product-card">
-          <img src="IMG-20250724-WA0006.jpg" alt="Census">
-          <p>sunsys</p>
-        </div>
-      </a>
-    </div>
-  </section>
+    <!-- Features -->
+    <section class="features">
+      <div class="feature">
+        <h3>Save Time</h3>
+        <p>Automate tracking and focus on what truly matters.</p>
+      </div>
+      <div class="feature">
+        <h3>Boost Performance</h3>
+        <p>Monitor progress and identify areas for improvement.</p>
+      </div>
+      <div class="feature">
+        <h3>Centralized Data</h3>
+        <p>All tasks and communication in one secure location.</p>
+      </div>
+      <div class="feature">
+        <h3>Clear Communication</h3>
+        <p>Reduce misunderstandings with direct task assignments.</p>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
-    <div class="disclaimer">
-      <h3>⚖️ Disclaimer – TaskSaathi</h3>
-      <p>📌 <strong>Platform Role:</strong> A connecting platform, not an employer.
-         👤 <strong>User Responsibility:</strong> Users must verify all details.
-         📄 <strong>No Guarantee:</strong> We do not guarantee any outcomes.
-         🛡️ <strong>Liability:</strong> Not responsible for contracts or disputes.
-         🔒 <strong>Safety First:</strong> Share personal details with caution.
-         🚫 <strong>No Misuse:</strong> Fraud may lead to account suspension.</p>
+    <p>⚖️ Disclaimer – TaskSaathi: This platform is a connector, not an employer. Please verify all details independently.</p>
+    <div class="footer-socials">
+      <a href="#" target="_blank">
+        <img src="IMG-20250724-WA0006.jpg" alt="Census Logo">
+      </a>
+      <a href="https://www.linkedin.com/company/tasksaathi/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zm-46.44-340C24.33 108 0 83.67 0 53.22A53.24 53.24 0 0 1 53.22 0a53.24 53.24 0 0 1 53.22 53.22c0 30.45-24.34 54.78-53.6 54.78zM447.9 448h-92.4V302.4c0-34.7-.7-79.1-48.2-79.1-48.3 0-55.7 37.7-55.7 76.6V448h-92.4V148.9h88.8v40.8h1.3c12.4-23.5 42.5-48.2 87.4-48.2 93.5 0 110.7 61.6 110.7 141.5V448z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/tasksaathi/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 190.6c-41.8 0-75.7-33.9-75.7-75.7s33.9-75.7 75.7-75.7 75.7 33.9 75.7 75.7-33.9 75.7-75.7 75.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9z"/>
+        </svg>
+      </a>
+      <a href="https://x.com/tasksaathi" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path fill="currentColor" d="M389.6 48H462l-150.8 171.5L480 464H334.7L233.8 317.8 117.4 464H45.3l160.4-182.4L32 48h148.9l93.3 132.1L389.6 48zm-33.5 368h44.4L156.7 96h-47.4l246.8 320z"/>
+        </svg>
+      </a>
     </div>
-
-    <div class="social-follow">
-      <p>Follow us on</p>
-      <div class="icons">
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/company/sunsystechsol-pvt-ltd/">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M100.28 448H7.4V148.9h92.88zm-46.44-340C24.33 108 0 83.67 0 53.22A53.24 53.24 0 0 1 53.22 0a53.24 53.24 0 0 1 53.22 53.22c0 30.45-24.34 54.78-53.6 54.78zM447.9 448h-92.4V302.4c0-34.7-.7-79.1-48.2-79.1-48.3 0-55.7 37.7-55.7 76.6V448h-92.4V148.9h88.8v40.8h1.3c12.4-23.5 42.5-48.2 87.4-48.2 93.5 0 110.7 61.6 110.7 141.5V448z"/>
-          </svg>
-        </a>
-        <!-- Instagram -->
-        <a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 190.6c-41.8 0-75.7-33.9-75.7-75.7s33.9-75.7 75.7-75.7 75.7 33.9 75.7 75.7-33.9 75.7-75.7 75.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-.6-35.3-9.4-66.7-34.3-91.6-24.9-24.9-56.3-33.7-91.6-34.3-36.2-2.1-144.8-2.1-181 0-35.3.6-66.7 9.4-91.6 34.3-24.9 24.9-33.7 56.3-34.3 91.6-2.1 36.2-2.1 144.8 0 181 0 35.3 9.4 66.7 34.3 91.6 24.9 24.9 56.3 33.7 91.6 34.3 36.2 2.1 144.8 2.1 181 0 35.3-.6 66.7-9.4 91.6-34.3 24.9-24.9 33.7-56.3 34.3-91.6 2.1-36.2 2.1-144.8 0-181z"/>
-          </svg>
-        </a>
-        <!-- Twitter/X -->
-        <a href="https://x.com/tasksaathi?t=IvJqmia-FLxfJbUpmgPedA&s=08">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path d="M389.6 48H462l-150.8 171.5L480 464H334.7L233.8 317.8 117.4 464H45.3l160.4-182.4L32 48h148.9l93.3 132.1L389.6 48zm-33.5 368h44.4L156.7 96h-47.4l246.8 320z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="powered-by">
-      <img src="IMG-20250724-WA0006.jpg" alt="Sunsys Logo">
-      <p>Powered by Sunsys Techsol Pvt. Ltd.</p>
-    </div>
-
-    <p class="copy">
-      © 2025 Chalo Saathi. All Rights Reserved. |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms & Conditions</a>
-    </p>
+    <p class="copy">© 2025 TaskSaathi. All Rights Reserved.</p>
   </footer>
 
-  <!-- Theme Toggle Script -->
   <script>
     const themeToggle = document.getElementById("themeToggle");
     const body = document.body;
