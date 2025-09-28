@@ -105,6 +105,9 @@
       <label for="name">Full Name:</label>
       <input type="text" id="name" placeholder="Enter Full Name" required>
 
+      <label for="company">Company Name:</label>
+      <input type="text" id="company" placeholder="Enter Company Name" required>
+
       <label for="email">Email:</label>
       <input type="email" id="email" placeholder="Enter Email" required>
 
@@ -131,17 +134,17 @@
       e.preventDefault();
 
       // Get form values
-      const name = document.getElementById('name').value;
-      const surname = document.getElementById('surname').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+      const name = document.getElementById('name').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
       const role = document.getElementById('role').value;
 
       // Save login info (simulated login)
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('role', role);
       localStorage.setItem('name', name);
-      localStorage.setItem('surname', surname);
+      localStorage.setItem('company', company);
       localStorage.setItem('email', email);
 
       // Redirect to dashboard
