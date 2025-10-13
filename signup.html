@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Task Saathi - Sign Up</title>
   <style>
     /* ----- General Reset ----- */
@@ -14,27 +14,29 @@
     }
 
     body {
-      background: linear-gradient(135deg, #e0f0ff, #c2e0ff); /* soft blue gradient */
+      background: linear-gradient(135deg, #e0f0ff, #c2e0ff);
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-start;   /* Align items to top instead of center */
+      min-height: 100vh;         /* Allow scrolling if needed */
+      padding-top: 40px;         /* Add top space so it's not cut off */
     }
 
     .login-container {
       background: #fff;
-      width: 400px;
+      width: 420px;
       padding: 35px 25px;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       text-align: center;
       animation: fadeIn 0.6s ease-in-out;
+      margin-bottom: 40px;       /* Add some bottom space for mobile scrolling */
     }
 
     .login-container h2 {
       margin-bottom: 20px;
       font-size: 26px;
-      color: #0D47A1; /* deep blue for heading */
+      color: #0D47A1;
     }
 
     form {
@@ -46,27 +48,34 @@
     label {
       margin-bottom: 5px;
       font-size: 14px;
-      color: #0D47A1; /* blue labels */
+      color: #0D47A1;
     }
 
-    input {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="file"],
+    input[type="tel"],
+    select {
       padding: 12px 14px;
       margin-bottom: 15px;
-      border: 1px solid #0D47A1; /* blue border */
+      border: 1px solid #0D47A1;
       border-radius: 8px;
       font-size: 15px;
       transition: all 0.3s ease;
+      width: 100%;
+      background-color: #fff;
     }
 
-    input:focus {
+    input:focus, select:focus {
       outline: none;
-      border-color: #1976D2; /* brighter blue on focus */
+      border-color: #1976D2;
       box-shadow: 0 0 0 3px rgba(25,118,210,0.2);
     }
 
     .btn {
       padding: 12px;
-      background-color: #0D47A1; /* blue button */
+      background-color: #0D47A1;
       border: none;
       border-radius: 8px;
       color: #fff;
@@ -103,7 +112,7 @@
     }
 
     .links a {
-      color: #0D47A1; /* blue links */
+      color: #0D47A1;
       text-decoration: none;
       font-weight: 500;
     }
@@ -123,25 +132,33 @@
   <div class="login-container">
     <h2>Create Your Account</h2>
     <form>
-      <label for="company name">Company Name :</label>
-      <input type="name" id="company name" placeholder="Name" required>
+      <label for="company-name">Company Name :</label>
+      <input type="text" id="company-name" placeholder="Company Name" required>
 
-      <label for="first name">first name :</label>
-      <input type="text" id=" first name" placeholder="Enter first name  " required>
-
-       <label for="Last name">Last name :</label>
-      <input type="text" id="last name" placeholder="Enter last name" required>
-
+      <label for="username">Username :</label>
+      <input type="text" id="username" placeholder="Enter Username" required>
 
       <label for="email">Email :</label>
       <input type="email" id="email" placeholder="Enter Email" required>
 
+
+
+      <label for="contact">Number :</label>
+      <input type="tel" id="contact Number" placeholder="Enter contact Number" required>
+
+      <label for="document">Valid Reqistration Document :</label>
+      <input type="file" id="document" accept=".pdf,.jpg,.jpeg,.png" required>
+
       <label for="password">Password :</label>
       <input type="password" id="password" placeholder="Enter Password" required>
 
-      <label for="Phone-number">Number :</label>
-      <input type="phone-number" id="Phone-number" placeholder="Enter Phone-number" required>
 
+      <label for="role">Role :</label>
+      <select id="role" required>
+        <option value="" disabled selected>Select your role</option>
+        <option value="employer">Employer</option>
+        <option value="employee">Employee</option>
+      </select>
 
       <button type="submit" class="btn">Sign Up</button>
       <button type="button" class="btn-google">Sign Up with Google</button>
